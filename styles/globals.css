@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  /* Ring Circle Cursor with Rotating Dot */
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="12" fill="none" stroke="%236366f1" stroke-width="2.5"/><g><animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="2s" repeatCount="indefinite"/><circle cx="24" cy="42" r="2.5" fill="%236366f1"/></g></svg>') 24 24, auto;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
+}
+
+/* Prevent theme flash */
+html.dark body {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+html body {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  font-size: 1.25rem;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-all duration-300;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary-fixed text-on-primary-fixed dark:bg-blue-600 dark:text-white;
+}
+
+/* Forest Ash Dark Mode Selection */
+html.dark ::selection {
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+/* Hide default scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll Indicator Animations */
+@keyframes scrollText {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes scrollArrow {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes fadeOutScroll {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Utility classes */
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #c5c5d6 0.5px, transparent 0.5px);
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 dark:bg-gray-800/20 dark:border-gray-700/50;
+}
+
+html.dark .glass-effect {
+  background-color: rgba(17, 24, 39, 0.6);
+  border-color: rgba(107, 114, 128, 0.25);
+}
+
+.button-primary {
+  @apply bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3 font-headline uppercase tracking-widest text-xs font-bold hover:shadow-lg transform hover:scale-105 transition-all;
+}
+
+.button-secondary {
+  @apply border-2 border-primary text-primary dark:text-blue-400 px-8 py-3 font-headline uppercase tracking-widest text-xs font-bold hover:bg-primary hover:text-white transition-all;
+}
+
+/* Dark mode utilities */
+.dark-gradient {
+  @apply dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+}
+
+html.dark .dark-gradient {
+  background: linear-gradient(to bottom, #111827, #1f2937, #111827);
+}
+
+/* Responsive text sizes */
+@screen md {
+  .hero-title {
+    @apply text-7xl;
+  }
+  
+  .section-title {
+    @apply text-6xl;
+  }
+}
+
+@screen sm {
+  .hero-title {
+    @apply text-5xl;
+  }
+  
+  .section-title {
+    @apply text-4xl;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-in-out;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-in-out;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 12s linear infinite;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply hover:shadow-lg dark:hover:shadow-lg dark:hover:shadow-blue-600/20 hover:border-primary transition-all duration-300;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent;
+}
+
+.gradient-text-dark {
+  @apply dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-300 dark:bg-clip-text dark:text-transparent;
+}
+
+/* Dark mode enhancements */
+.dark {
+  color-scheme: dark;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #9ca3af;
+}
+
+.dark button {
+  @apply transition-all duration-300;
+}
+
+/* Smooth color transitions for dark mode */
+.dark * {
+  @apply transition-colors duration-300;
+}
+
+/* Border adjustments for dark mode */
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Hover effects for dark mode */
+.dark a:hover,
+.dark button:hover {
+  @apply transition-all duration-300;
+}
+
+/* Background patterns for dark mode */
+.dark .blueprint-grid {
+  background-image: radial-gradient(circle, rgba(229, 231, 235, 0.1) 0.5px, transparent 0.5px);
+}
+
+/* Gradient overlays */
+.gradient-overlay {
+  @apply bg-gradient-to-br from-primary/10 to-primary-container/10;
+}
+
+html.dark .gradient-overlay {
+  background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.08), rgba(79, 70, 229, 0.05));
+}
+
+/* Improved contrast for dark mode */
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1f2937;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1f2937;
+}
+
+.dark .border-gray-200 {
+  border-color: #374151;
+}
+
+.dark .border-gray-300 {
+  border-color: #374151;
+}
+
+/* Header styling for dark mode */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  @apply text-white;
+}
+
+/* Forest Ash Dark Mode Enhancements */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f0f0f5;
+}
+
+/* Form improvements */
+input,
+textarea,
+select {
+  @apply transition-all duration-300;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply ring-2 ring-primary/50 outline-none;
+}
+
