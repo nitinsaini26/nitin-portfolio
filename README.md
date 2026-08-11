@@ -45,5 +45,5 @@ Recommended: Vercel (first-class Next.js support). You can also host on any Node
 This project is licensed under the MIT License — see `LICENSE`.
 
 ## Contact
-Nitin Saini — https://github.com/nitinsaini26
+Nitin Kumar — https://github.com/nitinsaini26
 
