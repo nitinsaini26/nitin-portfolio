@@ -1,7 +1,5 @@
 # Nitin Kumar — Portfolio
 
-🌐 **Live Website:** [https://nitin.nitinsaini7455.workers.dev](https://nitin.nitinsaini7455.workers.dev)
-
 Professional portfolio website built with Next.js and Tailwind CSS. This repository contains the source for a fast, accessible, and responsive portfolio that showcases projects, experience, education, and contact information.
 
 ## Highlights
