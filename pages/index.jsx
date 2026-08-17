@@ -33,12 +33,12 @@ export default function Home() {
         <HeroSection />
         
         {/* Projects Section */}
-        <section id="research" className="py-20 px-8 bg-surface dark:bg-inverse-surface">
+        <section id="research" className="py-20 px-8 bg-surface dark:bg-gray-900 border-b border-transparent dark:border-gray-800/50 transition-colors duration-300">
           <div className="max-w-screen-2xl mx-auto">
-            <h2 className="font-headline text-5xl md:text-6xl font-black mb-4 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-cyan-400 dark:to-cyan-300 dark:bg-clip-text">
+            <h2 className="font-headline text-5xl md:text-6xl font-black mb-4 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-indigo-300 dark:via-blue-300 dark:to-cyan-300 dark:bg-clip-text">
               Featured Projects
             </h2>
-            <p className="font-body text-lg text-on-surface-variant dark:text-inverse-on-surface mb-16">
+            <p className="font-body text-lg text-on-surface-variant dark:text-slate-300 mb-16">
               A selection of projects showcasing my skills in data analytics, automation, and web development
             </p>
 
@@ -57,12 +57,12 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-20 px-8 bg-surface-bright dark:bg-inverse-surface">
+        <section id="experience" className="py-20 px-8 bg-surface-bright dark:bg-slate-900/60 border-b border-transparent dark:border-gray-800/50 transition-colors duration-300">
           <div className="max-w-screen-2xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16">
               {/* Experience */}
               <div>
-                <h2 className="font-headline text-5xl font-black mb-16 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-cyan-400 dark:to-cyan-300 dark:bg-clip-text">
+                <h2 className="font-headline text-5xl font-black mb-16 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-indigo-300 dark:via-blue-300 dark:to-cyan-300 dark:bg-clip-text">
                   Experience
                 </h2>
                 <div className="space-y-12">
@@ -80,8 +80,8 @@ export default function Home() {
               </div>
 
               {/* Education */}
-              <div>
-                <h2 className="font-headline text-5xl font-black mb-16 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-cyan-400 dark:to-cyan-300 dark:bg-clip-text">
+              <div id="education">
+                <h2 className="font-headline text-5xl font-black mb-16 text-on-surface dark:text-transparent dark:bg-gradient-to-r dark:from-indigo-300 dark:via-blue-300 dark:to-cyan-300 dark:bg-clip-text">
                   Education
                 </h2>
                 <div className="space-y-6">

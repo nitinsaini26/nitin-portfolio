@@ -9,6 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'dark-bg': '#0f172a',
+        'dark-surface': '#111827',
+        'dark-card': '#1f2937',
+        'dark-border': '#374151',
+        'dark-accent': '#6366f1',
+        'dark-accent-light': '#818cf8',
         'on-secondary-fixed': '#1c1b1b',
         'tertiary-container': '#444646',
         'primary-fixed-dim': '#bac3ff',

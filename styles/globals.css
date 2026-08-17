@@ -24,15 +24,14 @@ body {
   @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
 }
 
-/* Prevent theme flash */
 html.dark body {
-  background-color: #111827;
-  color: #ffffff;
+  background-color: #0f172a;
+  color: #f8fafc;
 }
 
 html body {
   background-color: #ffffff;
-  color: #111827;
+  color: #0f172a;
 }
 
 .material-symbols-outlined {
@@ -282,47 +281,37 @@ html.dark .gradient-overlay {
 
 /* Improved contrast for dark mode */
 .dark .text-gray-600 {
-  @apply text-gray-400;
+  @apply text-slate-300;
 }
 
 .dark .text-gray-700 {
-  @apply text-gray-300;
+  @apply text-slate-200;
 }
 
 .dark .bg-gray-50 {
-  background-color: #1f2937;
+  background-color: #1e293b;
 }
 
 .dark .bg-gray-100 {
-  background-color: #1f2937;
+  background-color: #1e293b;
 }
 
 .dark .border-gray-200 {
-  border-color: #374151;
+  border-color: #334155;
 }
 
 .dark .border-gray-300 {
-  border-color: #374151;
+  border-color: #334155;
 }
 
 /* Header styling for dark mode */
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  @apply text-white;
-}
-
-/* Forest Ash Dark Mode Enhancements */
 html.dark h1,
 html.dark h2,
 html.dark h3,
 html.dark h4,
 html.dark h5,
 html.dark h6 {
-  color: #f0f0f5;
+  color: #f8fafc;
 }
 
 /* Form improvements */

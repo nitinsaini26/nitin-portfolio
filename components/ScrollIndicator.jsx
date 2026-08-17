@@ -61,14 +61,14 @@ export default function ScrollIndicator() {
 
       <div className="flex flex-col items-center gap-2">
         {/* Scroll Text */}
-        <span className="scroll-text font-headline text-sm font-bold uppercase tracking-widest text-gray-600 dark:text-cyan-400">
+        <span className="scroll-text font-headline text-sm font-bold uppercase tracking-widest text-gray-600 dark:text-indigo-400">
           Scroll
         </span>
 
         {/* Arrow Down */}
         <div className="scroll-arrow">
           <svg
-            className="w-5 h-5 text-gray-600 dark:text-cyan-400"
+            className="w-5 h-5 text-gray-600 dark:text-indigo-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

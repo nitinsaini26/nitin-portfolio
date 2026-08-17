@@ -7,6 +7,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [showLocationPopup, setShowLocationPopup] = useState(true);
   const [time, setTime] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Load theme preference from localStorage
@@ -66,10 +67,10 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 fixed top-0 w-full z-50 shadow-sm dark:shadow-lg transition-colors duration-300">
+    <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/80 fixed top-0 w-full z-50 shadow-sm dark:shadow-lg transition-colors duration-300">
       <div className="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
         <Link href="/">
-          <div className="font-headline text-xl font-black tracking-tighter text-primary dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-300 dark:bg-clip-text cursor-pointer hover:opacity-80 transition-opacity">
+          <div className="font-headline text-xl font-black tracking-tighter text-primary dark:text-transparent dark:bg-gradient-to-r dark:from-indigo-300 dark:to-blue-300 dark:bg-clip-text cursor-pointer hover:opacity-80 transition-opacity">
             NITIN KUMAR
           </div>
         </Link>
@@ -77,25 +78,31 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <Link
             href="#research"
-            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-colors duration-300"
           >
             Projects
           </Link>
           <Link
             href="#experience"
-            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-colors duration-300"
           >
             Experience
           </Link>
           <Link
+            href="#education"
+            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-colors duration-300"
+          >
+            Education
+          </Link>
+          <Link
             href="#skills"
-            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-colors duration-300"
           >
             Skills
           </Link>
           <Link
             href="#contact"
-            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+            className="font-headline uppercase tracking-widest text-xs font-bold text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-colors duration-300"
           >
             Contact
           </Link>
@@ -103,7 +110,7 @@ export default function Navbar() {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-yellow-400 hover:bg-primary hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300 transform hover:scale-110"
+            className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-amber-400 hover:bg-primary hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white transition-all duration-300 transform hover:scale-110"
             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
             {isDark ? (
@@ -132,7 +139,7 @@ export default function Navbar() {
               href={resumeData.personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300"
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-all duration-300"
               title="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -145,7 +152,7 @@ export default function Navbar() {
               href={`https://${resumeData.personal.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300"
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-all duration-300"
               title="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -157,15 +164,15 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setShowLocationPopup(!showLocationPopup)}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 text-xl"
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400 transition-all duration-300 text-xl"
                 title={showLocationPopup ? "Hide Location" : "Show Location"}
               >
                 {showLocationPopup ? (
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-600 dark:text-slate-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
                   </svg>
                 ) : (
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10"/>
                     <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
                     <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
@@ -176,28 +183,28 @@ export default function Navbar() {
 
               {/* Location Popup Modal */}
               {showLocationPopup && (
-                <div className="absolute right-0 mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-lg dark:shadow-xl z-50 w-64">
+                <div className="absolute right-0 mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700/80 rounded-lg p-4 shadow-lg dark:shadow-2xl z-50 w-64">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-headline text-sm font-bold text-on-surface dark:text-white">My Location</h3>
+                    <h3 className="font-headline text-sm font-bold text-on-surface dark:text-slate-100">My Location</h3>
                     <button
                       onClick={() => setShowLocationPopup(false)}
-                      className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                      className="text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200"
                     >
                       ✕
                     </button>
                   </div>
                   <div className="space-y-2">
-                    <p className="font-body text-sm text-on-surface-variant dark:text-gray-300">
+                    <p className="font-body text-sm text-on-surface-variant dark:text-slate-200">
                       📍 <strong>Dehradun, India</strong>
                     </p>
-                    <p className="font-body text-xs text-on-surface-variant dark:text-gray-400">
+                    <p className="font-body text-xs text-on-surface-variant dark:text-slate-400">
                       Uttarakhand, India
                     </p>
-                    <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2">
-                      <p className="font-label text-xs font-bold text-on-surface dark:text-blue-300 uppercase tracking-wider mb-1">
+                    <div className="border-t border-gray-200 dark:border-gray-700/80 pt-2 mt-2">
+                      <p className="font-label text-xs font-bold text-on-surface dark:text-indigo-300 uppercase tracking-wider mb-1">
                         Current Time (IST)
                       </p>
-                      <p className="font-body text-sm text-primary dark:text-blue-400 font-semibold">
+                      <p className="font-body text-sm text-primary dark:text-indigo-400 font-semibold">
                         {time}
                       </p>
                     </div>
@@ -209,7 +216,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 font-headline uppercase tracking-widest text-[10px] font-bold rounded hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-primary to-primary-container dark:from-indigo-600 dark:to-blue-600 text-white px-6 py-2.5 font-headline uppercase tracking-widest text-[10px] font-bold rounded hover:shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             Get In Touch
           </a>
@@ -237,11 +244,88 @@ export default function Navbar() {
               </svg>
             )}
           </button>
-          <button className="text-primary dark:text-blue-400">
-            <span className="material-symbols-outlined">menu</span>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-primary dark:text-indigo-400 hover:opacity-80 transition-opacity"
+            aria-label="Toggle menu"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {isMobileMenuOpen ? 'close' : 'menu'}
+            </span>
           </button>
         </div>
       </div>
+
+      {/* Mobile Dropdown Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white/98 dark:bg-gray-900/98 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 px-6 py-5 shadow-xl transition-all">
+          <div className="flex flex-col space-y-3">
+            <Link
+              href="#research"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-headline uppercase tracking-widest text-xs font-bold text-gray-700 dark:text-slate-200 hover:text-primary dark:hover:text-indigo-400 py-2 transition-colors"
+            >
+              Projects
+            </Link>
+            <Link
+              href="#experience"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-headline uppercase tracking-widest text-xs font-bold text-gray-700 dark:text-slate-200 hover:text-primary dark:hover:text-indigo-400 py-2 transition-colors"
+            >
+              Experience
+            </Link>
+            <Link
+              href="#education"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-headline uppercase tracking-widest text-xs font-bold text-gray-700 dark:text-slate-200 hover:text-primary dark:hover:text-indigo-400 py-2 transition-colors"
+            >
+              Education
+            </Link>
+            <Link
+              href="#skills"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-headline uppercase tracking-widest text-xs font-bold text-gray-700 dark:text-slate-200 hover:text-primary dark:hover:text-indigo-400 py-2 transition-colors"
+            >
+              Skills
+            </Link>
+            <Link
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-headline uppercase tracking-widest text-xs font-bold text-gray-700 dark:text-slate-200 hover:text-primary dark:hover:text-indigo-400 py-2 transition-colors"
+            >
+              Contact
+            </Link>
+
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
+              <div className="flex items-center gap-4 text-xs font-bold">
+                <a
+                  href={resumeData.personal.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={`https://${resumeData.personal.linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-indigo-400"
+                >
+                  LinkedIn
+                </a>
+              </div>
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-gradient-to-r from-primary to-primary-container dark:from-indigo-600 dark:to-blue-600 text-white px-5 py-2 font-headline uppercase tracking-widest text-[10px] font-bold rounded shadow"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
